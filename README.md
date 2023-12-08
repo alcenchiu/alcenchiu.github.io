@@ -6,6 +6,8 @@ This project utilizes the 2021 American Community Survey, an annual demographic 
 
 The machine learning models I chose to use for this project were the SciKit Learn’s Random Forest Classifier and Random Forest Regressor, and Scikit Learn’s Ridge Regression. The results of these models showed that while gender ranks highly on the feature importance measure in the Random Forest Regressor model and is above 50% accuracy for the Random Forest Classifier model, it does not pair well with the Random Forest model to create a successful model for predicting wage income. 
 
+***
+
 ## Data
 
 Data on the 2021 American Community Survey was obtained from the Integrated Public Use Microdata Series (IPUMS), the world’s largest individual-level population database. I selected a 0.1% sample size of the 2021 American Community Survey dataset and included the individual characteristics of age, gender, race, cognitive difficulty status, ambulatory difficulty status, 
@@ -14,6 +16,8 @@ citizenship status, English proficiency, area of residence, number of children, 
 While the focus of this project was the effect of gender on wage income, I selected a variety of variables that either had potential to affect an individual’s wage income, or had been thoroughly researched in the past and proven to have correlation to wage income, to measure against the effects of gender. 
 
 First, thorough processing of the dataset was necessary to make it usable for analysis. In the IPUMS database format, the values for each variable either represented a numerical value, or a numerical value that represented a categorical value that was noted in the dataset’s description upon download. For categorical variables, I transformed all numerical values into categorical descriptors in order to accurately represent their meaning. Certain numerical values also represented instances of illegibility, inapplicability to the individual, or missing answers, and had to be removed from the dataset. Particularly for the wage income variable, although the variable was numerical, the 999999 and 999998 values did not actually indicate the wage income earned by an individual, but instead represented missing values and inapplicability for an individual, and had to be removed. The wage income variable was also chosen over the total income variable because the total income variable included negative values, and when running a logistic regression model, values must be greater than zero for a logarithm to be taken. Additionally, a very small non-zero value (0.000001) had to be added to all wage income values because this variable included values of 0, and logarithms of 0 cannot be taken as well. 
+
+***
 
 ## First-Look at Key Variables
 
@@ -37,7 +41,10 @@ I also examined the distribution of wage income upon the state an individual is 
 
 [4]: assets/IMG/Figure4.png
 
+***
+
 ## Modeling
+
 After cleaning the dataset, I chose to run three models. Given my dataset, with labeled data, it was appropriate to run supervised learning models, which all three models below are. All data was also split into training and testing data to properly test the models. Additionally, for all models, many of my predictor variables were categorical, and therefore had to be turned into dummy variables for the model.
 
 The first model I ran was a Ridge Regression, using wage income as the target variable.  The predictor variables were metropolitan status, childbirth in the last year, race, citizenship, english speaking ability, ambulatory difficulty status, physical difficulty status, number of children, age, educational attainment, gender, and state. I chose to use the Ridge Regression model because this is a linear regression model that adds a penalty term to the sum of squared coefficients and therefore makes sure that predictors that are redundant or less impactful will not have as large of an impact on the model. Given that I am choosing 12 predictor variables, and many will be turned into dummy variables, and I am unsure of how meaningful certain predictors are, I wanted to make sure that I was not adding too many predictors to the model that may not actually be useful. The data for this model was also scaled
@@ -46,9 +53,38 @@ The second model I ran was a Random Forest Regression model. I used the same pre
 
 The third model I ran was a Random Forest Classifier model. Differing from the first two models, this model uses a categorical target variable. Therefore, instead of using income wage as the target variable, I chose to use gender. By doing this, I am looking to see whether age, educational attainment, state, and income wage can accurately predict the gender of the individual. I chose to only include these predictor variables, and not the wider range included in the previous two models because I wanted to focus on the impact of average wage income, as well the variables discussed in the Data Section that have clear relationships with wage income. 
 
+***
+
 ## Results
 The first model, the Ridge Regression model, did not perform well. As shown in Figure 5, the accuracy of the model was poor. The R2 on the testing data of this model was 0.19, while the RMSE was 10.72. This indicates that this model was not appropriate for the data. 
+[![screenshot][5]][5]
 
+[5]: assets/IMG/Figure5.png
+
+While Ridge Regression does not have feature ranking, the coefficients for each variable can also be interpreted. Age has the largest coefficient, indicating it has great importance in the model. Gender does not have as significant importance, with the third largest coefficient. 
+[![screenshot][6]][6]
+
+[6]: assets/IMG/Figure6.png
+
+Figure 7 shows the accuracy of the Random Forest Regression model, and clearly indicates that this model was not successful in predicting the wage income of an individual. The R2 on the testing data of this model was 0.29, while the RMSE was 9.98. These are both not good indicators for the model, and demonstrate that this was not an appropriate model for this data. 
+[![screenshot][7]][7]
+
+[7]: assets/IMG/Figure7.png
+
+While the model did not perform well, it is still interesting to note that for feature importance, the age of the individual was most indicative of the wage income of the individual. The gender of the individual was the second most important feature, but far lower in importance than the age. 
+[![screenshot][8]][8]
+
+[8]: assets/IMG/Figure8.png
+
+For the Random Forest Classifier Model, the model did not perform particularly well. The accuracy of the model was 56.69%, meaning that the model accurately predicted the gender of the individual a little over half of the time, given the set of predictors mentioned above. 
+[![screenshot][9]][9]
+
+[9]: assets/IMG/Figure9.png
+
+The feature importance ranking for this model indicated that wage income was indeed the most important factor when predicting the gender of an individual, however, age and the state of the individual also had importance. 
+[![screenshot][10]][10]
+
+[10]: assets/IMG/Figure10.png
 
 ***
 
