@@ -56,7 +56,8 @@ The third model I ran was a Random Forest Classifier model. Differing from the f
 ***
 
 ## Results
-The first model, the Ridge Regression model, did not perform well. As shown in Figure 5, the accuracy of the model was poor. The R2 on the testing data of this model was 0.19, while the RMSE was 10.72. This indicates that this model was not appropriate for the data. 
+
+The first model, the Ridge Regression model, did not perform well. As shown in Figure 5, the accuracy of the model was poor. The R-squared on the testing data of this model was 0.19, while the RMSE was 10.72. This indicates that this model was not appropriate for the data. 
 [![screenshot][5]][5]
 
 [5]: assets/IMG/Figure5.png
@@ -66,7 +67,7 @@ While Ridge Regression does not have feature ranking, the coefficients for each 
 
 [6]: assets/IMG/Figure6.png
 
-Figure 7 shows the accuracy of the Random Forest Regression model, and clearly indicates that this model was not successful in predicting the wage income of an individual. The R2 on the testing data of this model was 0.29, while the RMSE was 9.98. These are both not good indicators for the model, and demonstrate that this was not an appropriate model for this data. 
+Figure 7 shows the accuracy of the Random Forest Regression model, and clearly indicates that this model was not successful in predicting the wage income of an individual. The R-squared on the testing data of this model was 0.29, while the RMSE was 9.98. These are both not good indicators for the model, and demonstrate that this was not an appropriate model for this data. 
 [![screenshot][7]][7]
 
 [7]: assets/IMG/Figure7.png
@@ -88,30 +89,23 @@ The feature importance ranking for this model indicated that wage income was ind
 
 ***
 
-## Guide to Adding Content
-* Your repository's `README.md` file (the file you are reading now) acts like a home page. Replace its contents with whatever you want the world to see by editing the file on GitHub.
-* If you want to turn this page into a CV or blog, etc., it may be useful to refer to a [guide for writing Markdown](https://www.markdownguide.org/basic-syntax/).
-* You can create other markdown files (.md) in your repository and navigate to them from this page using links, i.e.: [here is a link to another file, `project.md`](project.md)
-* When editing a markdown file on GitHub, it is useful to wrap text by selecting the *Soft wrap* option as shown: ![screenshot](/assets/IMG/instr_wrap.png)
-* If you want to get even more technical, you can also write HTML in your .md files, and GitHub Pages will render it. For example, the image below is displayed by writing the following (edit this file to see!): `<img align="right" width="200" height="200" src="/assets/IMG/template_frog.png">`
-<img align="right" width="337" height="200" src="/assets/IMG/template_frog.png"> 
+## Discussion
+
+As seen in the results portion of this website, none of the models performed well with this dataset. 
+
+Notably, the Random Forest regression model had a higher R-squared than the Ridge Regression model, indicating that the Random Forest model did marginally better than the Ridge Regression model, but still did not perform well. This could indicate that my dataset displays a more non-linear relationship because Random Forests are more well suited to dealing with complex, non-linear models, while Ridge Regressions are a form of linear gression. Figures 8 and 6 were also important to note in that the most important predictor variables for both regression models was not gender. 
+
+The Random Forest Classifier model was used to explore the relationship between gender and wage income from a different angle, but did not yield particularly good results, as seen in Figure 9. However, in this model, wage income did display the greatest feature importance in predicting gender, as seen in Figure 10.
 
 ***
 
-## Delivering your Project
+## Conclusion
 
-Your final project has three components: a dataset, a report, and your code.
 
-### Dataset
 
-A link to the dataset you used must be submitted on BruinLearn so that your course instructor can use it to run your code. To do this, it might be easiest to upload the dataset to Google Drive, then share a link (click *Share* then *Copy link*). If your dataset is too big to upload, try to find a way to reduce its size, or speak with your instructor if this is not possible.
-
-### Report
-
-Your report should be **delivered via your website**. Submit a link to your website on BruinLearn so that your instructor can browse it to find your report. 
-
-To make this simple, you can write the report using a word processor or Latex, then export it as a .pdf file and upload it to the `assets` directory. You can then link to it [like so](/assets/project_demo.pdf). However, you can also type the report directly onto the website using another markdown page - [here is](/project.md) a template for that.
+***
 
 ### Code
 
-A link to your code must be submitted on BruinLearn, and the course instructor must be able to download and run your code using the dataset. The code could be in a Google Colab notebook (make sure to *share* the notebook so access is set to **Anyone with the link**), or you could upload the code into a separate GitHub repository, or you could upload the code into the `assets` directory of your website and link to it. 
+Here is a link to my Google Colab Notebook with the code for this project: 
+You can then link to it [like so](/assets/project_demo.pdf)
