@@ -1,6 +1,6 @@
 ## Introduction <img align="right" width="220" height="220" src="/assets/IMG/template_logo.png">
 
-The gender pay gap has been a longstanding issue in the United States. In 2022, women earned roughly 82% of what men earned. This is similar to 2002, when women made roughly 80% of what men earned, showing that the gender pay gap has persisted at a similar rate over the past 20 years (Pew Research Center 2023). This machine learning model is motivated by this fact, and looks to see whether the gender of an individual plays a significant role in predicting an individual’s wage income.
+The gender pay gap has been a longstanding issue in the United States. In 2022, women earned roughly 82% of what men earned. This is similar to 2002, when women made roughly 80% of what men earned, showing that the gender pay gap has persisted at a similar rate over the past 20 years (Aragão 2023). This machine learning model is motivated by this fact, and looks to see whether the gender of an individual plays a significant role in predicting an individual’s wage income.
 
 This project utilizes the 2021 American Community Survey, an annual demographic survey conducted by the U.S. Census Bureau. This survey provided numerous characteristics of individuals in the U.S., including but not limited to the gender characteristics that were incorporated into the machine learning models in the project.  
 
@@ -49,35 +49,35 @@ After cleaning the dataset, I chose to run three models. Given my dataset, with 
 
 The first model I ran was a Ridge Regression, using wage income as the target variable.  The predictor variables were metropolitan status, childbirth in the last year, race, citizenship, english speaking ability, ambulatory difficulty status, physical difficulty status, number of children, age, educational attainment, gender, and state. I chose to use the Ridge Regression model because this is a linear regression model that adds a penalty term to the sum of squared coefficients and therefore makes sure that predictors that are redundant or less impactful will not have as large of an impact on the model. Given that I am choosing 12 predictor variables, and many will be turned into dummy variables, and I am unsure of how meaningful certain predictors are, I wanted to make sure that I was not adding too many predictors to the model that may not actually be useful. The data for this model was also scaled
 
-The second model I ran was a Random Forest Regression model. I used the same predictor and target variables as in the Ridge Regression model. Rather than a linear regression with a penalty term, this model uses groups of decision trees to come to a final prediction. Given that I was unsure of the exact relationship between the predictor and target variable, I wanted to use this model to see whether a more complex and nonlinear model would be more appropriate for the data. 
+The second model I ran was a Random Forest Regression model with 100 estimators and a max depth of 6. This shallower depth ensures that the model will not encounter overfitting. I used the same predictor and target variables as in the Ridge Regression model. Rather than a linear regression with a penalty term, this model uses groups of decision trees to come to a final prediction. Given that I was unsure of the exact relationship between the predictor and target variable, I wanted to use this model to see whether a more complex and nonlinear model would be more appropriate for the data. 
 
-The third model I ran was a Random Forest Classifier model. Differing from the first two models, this model uses a categorical target variable. Therefore, instead of using income wage as the target variable, I chose to use gender. By doing this, I am looking to see whether age, educational attainment, state, and income wage can accurately predict the gender of the individual. I chose to only include these predictor variables, and not the wider range included in the previous two models because I wanted to focus on the impact of average wage income, as well the variables discussed in the Data Section that have clear relationships with wage income. 
+The third model I ran was a Random Forest Classifier model. Differing from the first two models, this model uses a categorical target variable. Therefore, instead of using income wage as the target variable, I chose to use gender. By doing this, I am looking to see whether age, educational attainment, state, and income wage can accurately predict the gender of the individual. I chose to only include these predictor variables, and not the wider range included in the previous two models because I wanted to focus on the impact of average wage income, as well the variables discussed in the Data Section that have clear relationships with wage income. Another motivation for training this model was that I acknowledge that predicting specific wage income is complex, and therefore wanted to attempt a simpler prediction, between only two output options - male, or female. 
 
 ***
 
 ## Results
 
-The first model, the Ridge Regression model, did not perform well. As shown in Figure 5, the accuracy of the model was poor. The R-squared on the testing data of this model was 0.19, while the RMSE was 10.72. This indicates that this model was not appropriate for the data. 
+The first model, the Ridge Regression model, did not perform well. As shown in Figure 5, the accuracy of the model was poor. The R-squared on the testing data of this model was 0.11, while the RMSE was 10.26. This indicates that this model was not appropriate for the data. 
 [![screenshot][5]][5]
 
 [5]: assets/IMG/Figure5.png
 
-While Ridge Regression does not have feature ranking, the coefficients for each variable can also be interpreted. Age has the largest coefficient, indicating it has great importance in the model. Gender does not have as significant importance, with the third largest coefficient. 
+While Ridge Regression does not have feature ranking, the coefficients for each variable can also be interpreted. Gender has the largest coefficient, meaning that in this model, gender plays a significant role in predicting wage income. 
 [![screenshot][6]][6]
 
 [6]: assets/IMG/Figure6.png
 
-Figure 7 shows the accuracy of the Random Forest Regression model, and clearly indicates that this model was not successful in predicting the wage income of an individual. The R-squared on the testing data of this model was 0.29, while the RMSE was 9.98. These are both not good indicators for the model, and demonstrate that this was not an appropriate model for this data. 
+Figure 7 shows the accuracy of the Random Forest Regression model, and clearly indicates that this model was not successful in predicting the wage income of an individual. The R-squared on the testing data of this model was 0.15, while the RMSE was 10.03. These are both not good indicators for the model, and demonstrate that this was not an appropriate model for this data. 
 [![screenshot][7]][7]
 
 [7]: assets/IMG/Figure7.png
 
-While the model did not perform well, it is still interesting to note that for feature importance, the age of the individual was most indicative of the wage income of the individual. The gender of the individual was the second most important feature, but far lower in importance than the age. 
+While the model did not perform well, it is still interesting to note that for feature importance, the age of the individual was most indicative of the wage income of the individual. The gender of the individual was the second most important feature, but significantly lower in importance than the age. 
 [![screenshot][8]][8]
 
 [8]: assets/IMG/Figure8.png
 
-For the Random Forest Classifier Model, the model did not perform particularly well. The accuracy of the model was 56.69%, meaning that the model accurately predicted the gender of the individual a little over half of the time, given the set of predictors mentioned above. 
+For the Random Forest Classifier Model, the model did not perform particularly well. The accuracy of the model was 56.22%, meaning that the model accurately predicted the gender of the individual a little over half of the time, given the set of predictors mentioned above. 
 [![screenshot][9]][9]
 
 [9]: assets/IMG/Figure9.png
@@ -91,17 +91,28 @@ The feature importance ranking for this model indicated that wage income was ind
 
 ## Discussion
 
-As seen in the results portion of this website, none of the models performed well with this dataset. 
+As seen in the results portion of this website, none of the models performed well with this dataset.
 
-Notably, the Random Forest regression model had a higher R-squared than the Ridge Regression model, indicating that the Random Forest model did marginally better than the Ridge Regression model, but still did not perform well. This could indicate that my dataset displays a more non-linear relationship because Random Forests are more well suited to dealing with complex, non-linear models, while Ridge Regressions are a form of linear gression. Figures 8 and 6 were also important to note in that the most important predictor variables for both regression models was not gender. 
+Notably, the Random Forest regression model had a higher R-squared than the Ridge Regression model, indicating that the Random Forest model did marginally better than the Ridge Regression model, but still did not perform well. This could indicate that my dataset displays a more non-linear relationship because Random Forests are more well suited to dealing with complex, non-linear models, while Ridge Regressions are a form of linear regression. Figures 8 and 6 were also important to note in that the most important predictor variables for both regression models was not gender.
 
-The Random Forest Classifier model was used to explore the relationship between gender and wage income from a different angle, but did not yield particularly good results, as seen in Figure 9. However, in this model, wage income did display the greatest feature importance in predicting gender, as seen in Figure 10.
+These two models may not have performed well because of the complexity of predicting the target variable. Wage income is subject to many factors, some of which may be under an individual’s control, but much of which is not. While certain relationships seem clear, such as in Figure 1, 2, 3, and 4, this does not mean creating a machine learning model for this data will yield meaningful results. 
+
+The Random Forest Classifier model was used to attempt to explore the relationship between gender and wage income from a different angle, but did not yield particularly good results as well, as seen in Figure 9. However, in this model, wage income did display the greatest feature importance in predicting gender, as seen in Figure 10. 
 
 ***
 
 ## Conclusion
 
 
+
+***
+
+### References
+
+1. Aragão, C. (2023, March 1). Gender pay gap in U.S. hasn’t changed much in two decades. Pew Research Center. https://www.pewresearch.org/short-      reads/2023/03/01/gender-pay-gap-facts/
+   
+2. U.S. Bureau of Labor Statistics. (n.d.). Education pays, 2020 : Career outlook. U.S. Bureau of Labor Statistics.             
+   https://www.bls.gov/careeroutlook/2021/data-on-display/education-pays.htm  
 
 ***
 
