@@ -40,12 +40,17 @@ I also examined the distribution of wage income upon the state an individual is 
 [4]: assets/IMG/Figure4.png
 
 **Modeling**
-1.	You can choose any theme [listed on this page](https://pages.github.com/themes/), though some do not work as well on mobile devices.
-2.	From GitHub, edit `_config.yml` and replace the `theme:` line with `theme: jekyll-theme-name` where `name` is the name of the theme from the above list. **For the `minima` theme, use a shortened preface like so `theme: minima`**, the others seem to need the whole preface `theme: jekyll-theme-`. You can check the *Actions* tab (as in step 6. above) to make sure the site is building successfully.
+After cleaning the dataset, I chose to run three models. Given my dataset, with labeled data, it was appropriate to run supervised learning models, which all three models below are. All data was also split into training and testing data to properly test the models. Additionally, for all models, many of my predictor variables were categorical, and therefore had to be turned into dummy variables for the model.
 
-### How to change your site logo (optional)
-1. Some themes, such as `jekyll-theme-minimal`, show a logo. In your repository, upload a logo or profile picture to the `assets/IMG/` directory
-2. Open `_config.yml` and modify the line `logo: /assets/IMG/template_logo.png` to point to your new image
+The first model I ran was a Ridge Regression, using wage income as the target variable.  The predictor variables were metropolitan status, childbirth in the last year, race, citizenship, english speaking ability, ambulatory difficulty status, physical difficulty status, number of children, age, educational attainment, gender, and state. I chose to use the Ridge Regression model because this is a linear regression model that adds a penalty term to the sum of squared coefficients and therefore makes sure that predictors that are redundant or less impactful will not have as large of an impact on the model. Given that I am choosing 12 predictor variables, and many will be turned into dummy variables, and I am unsure of how meaningful certain predictors are, I wanted to make sure that I was not adding too many predictors to the model that may not actually be useful. The data for this model was also scaled
+
+The second model I ran was a Random Forest Regression model. I used the same predictor and target variables as in the Ridge Regression model. Rather than a linear regression with a penalty term, this model uses groups of decision trees to come to a final prediction. Given that I was unsure of the exact relationship between the predictor and target variable, I wanted to use this model to see whether a more complex and nonlinear model would be more appropriate for the data. 
+
+The third model I ran was a Random Forest Classifier model. Differing from the first two models, this model uses a categorical target variable. Therefore, instead of using income wage as the target variable, I chose to use gender. By doing this, I am looking to see whether age, educational attainment, state, and income wage can accurately predict the gender of the individual. I chose to only include these predictor variables, and not the wider range included in the previous two models because I wanted to focus on the impact of average wage income, as well the variables discussed in the Data Section that have clear relationships with wage income. 
+
+**Results**
+The first model, the Ridge Regression model, did not perform well. As shown in Figure 5, the accuracy of the model was poor. The R2 on the testing data of this model was 0.19, while the RMSE was 10.72. This indicates that this model was not appropriate for the data. 
+
 
 ***
 
