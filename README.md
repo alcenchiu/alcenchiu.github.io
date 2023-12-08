@@ -21,7 +21,7 @@ First, thorough processing of the dataset was necessary to make it usable for an
 
 Only individuals aged 16-49 were included in our analysis based on findings presented below, revealing that the age of peak income in the 2021 American Community Survey occurred at 49 years old. Beyond this age, income demonstrated a consistent decline. Individuals under the age of 16 were not included because minors under the age of 16 can only work limited hours, and would naturally have wage income limits because of this. 
 
-[1]: /assets/IMG/instr_create.png
+[1]: /assets/IMG/Figure1.png
 
 ### How to copy this site as a template
 1. Create [a GitHub account](https://github.com/)
