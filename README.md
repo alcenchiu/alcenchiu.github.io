@@ -10,11 +10,18 @@ The machine learning models I chose to use for this project were the SciKit Lear
 
 **Data**
 
-First, check out the Github repository for this site: [https://github.com/atmosalex/atmosalex.github.io/](https://github.com/atmosalex/atmosalex.github.io/).
+Data on the 2021 American Community Survey was obtained from the Integrated Public Use Microdata Series (IPUMS), the world’s largest individual-level population database. I selected a 0.1% sample size of the 2021 American Community Survey dataset and included the individual characteristics of age, gender, race, cognitive difficulty status, ambulatory difficulty status, 
+citizenship status, English proficiency, area of residence, number of children, recency of childbirth, and wage income.
 
-Using GitHub pages, you can write a website using markdown syntax - the same syntax we use to write comments in Google Colab notebooks. GitHub pages then takes the markdown file and renders it as a web page using a Jekyll theme. The markdown source code for this page [is shown here](https://github.com/atmosalex/atmosalex.github.io/blob/main/README.md?plain=1).
+While the focus of this project was the effect of gender on wage income, I selected a variety of variables that either had potential to affect an individual’s wage income, or had been thoroughly researched in the past and proven to have correlation to wage income, to measure against the effects of gender. 
 
-## Setting up your Project Website
+First, thorough processing of the dataset was necessary to make it usable for analysis. In the IPUMS database format, the values for each variable either represented a numerical value, or a numerical value that represented a categorical value that was noted in the dataset’s description upon download. For categorical variables, I transformed all numerical values into categorical descriptors in order to accurately represent their meaning. Certain numerical values also represented instances of illegibility, inapplicability to the individual, or missing answers, and had to be removed from the dataset. Particularly for the wage income variable, although the variable was numerical, the 999999 and 999998 values did not actually indicate the wage income earned by an individual, but instead represented missing values and inapplicability for an individual, and had to be removed. The wage income variable was also chosen over the total income variable because the total income variable included negative values, and when running a logistic regression model, values must be greater than zero for a logarithm to be taken. Additionally, a very small non-zero value (0.000001) had to be added to all wage income values because this variable included values of 0, and logarithms of 0 cannot be taken as well. 
+
+**First-Look at Key Variables**
+
+Only individuals aged 16-49 were included in our analysis based on findings presented below, revealing that the age of peak income in the 2021 American Community Survey occurred at 49 years old. Beyond this age, income demonstrated a consistent decline. Individuals under the age of 16 were not included because minors under the age of 16 can only work limited hours, and would naturally have wage income limits because of this. 
+
+[1]: /assets/IMG/instr_create.png
 
 ### How to copy this site as a template
 1. Create [a GitHub account](https://github.com/)
