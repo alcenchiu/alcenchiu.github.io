@@ -1,15 +1,14 @@
-**AOS C111 Final Project by Alcen Chiu** <img align="right" width="220" height="220" src="/assets/IMG/template_logo.png">
+## AOS C111 Final Project by Alcen Chiu <img align="right" width="220" height="220" src="/assets/IMG/template_logo.png">
 
-* To get data for your project, you could:
-  * use **your own data** from a separate research activity
-  * **scour the internet** to find something original, then preprocess it yourself - see the Module Overview on BruinLearn for some resources
-  * browse an archive of data designed for machine learning problems, such as the [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/datasets)
+**Introduction**
 
-* Your report should be in the region of 2000-2500 words with three to four figures, and written in a scientific language and style. [This template page](/project.md) gives an example structure that you could use, but feel free to make it your own.
+The gender pay gap has been a longstanding issue in the United States. In 2022, women earned roughly 82% of what men earned. This is similar to 2002, when women made roughly 80% of what men earned, showing that the gender pay gap has persisted at a similar rate over the past 20 years (Pew Research Center 2023). This machine learning model is motivated by this fact, and looks to see whether the gender of an individual plays a significant role in predicting an individual’s wage income.
 
-Your website will be a great addition to your CV, and a place to host future projects too since it doubles as a GitHub repository. The first step is to set up a project website like this one by following the instructions below. 
+This project utilizes the 2021 American Community Survey, an annual demographic survey conducted by the U.S. Census Bureau. This survey provided numerous characteristics of individuals in the U.S., including but not limited to the gender characteristics that were incorporated into the machine learning models in the project.  
 
-## How does this website work?
+The machine learning models I chose to use for this project were the SciKit Learn’s Random Forest Classifier and Random Forest Regressor, and Scikit Learn’s Ridge Regression. The results of these models showed that while gender ranks highly on the feature importance measure in the Random Forest Regressor model and is above 50% accuracy for the Random Forest Classifier model, it does not pair well with the Random Forest model to create a successful model for predicting wage income. 
+
+**Data**
 
 First, check out the Github repository for this site: [https://github.com/atmosalex/atmosalex.github.io/](https://github.com/atmosalex/atmosalex.github.io/).
 
