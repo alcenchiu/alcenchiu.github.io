@@ -4,7 +4,7 @@ The gender pay gap has been a longstanding issue in the United States. In 2022, 
 
 This project utilizes the 2021 American Community Survey, an annual demographic survey conducted by the U.S. Census Bureau. This survey provided numerous characteristics of individuals in the U.S., including but not limited to the gender characteristics that were incorporated into the machine learning models in the project.  
 
-The machine learning models I chose to use for this project were the SciKit Learn’s Random Forest Classifier and Random Forest Regressor, and Scikit Learn’s Ridge Regression. The results of these models showed that while gender ranks highly on the feature importance measure in the Random Forest Regressor model and is above 50% accuracy for the Random Forest Classifier model, it does not pair well with the Random Forest model to create a successful model for predicting wage income. 
+The machine learning models I chose to use for this project were the SciKit Learn’s Random Forest Classifier and Random Forest Regressor, and Scikit Learn’s Ridge Regression. The results of these models showed that while gender ranks highly on the feature importance measure in the Random Forest Regressor model, is above 50% accuracy for the Random Forest Classifier model, and has the largest coefficient for the Ridge Regression model, it does not pair well with the Random Forest or Ridge Regression model to create a successful model for predicting wage income. 
 
 ***
 
