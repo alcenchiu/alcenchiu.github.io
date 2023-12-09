@@ -129,7 +129,9 @@ In a future project, more research could be done on what factors could be influe
 ### Code
 
 Here is a link to my Google Colab Notebook with the code for this project: 
-https://colab.research.google.com/drive/1wMZWS4ghx-1ywyY0ZOI0fFVo2T7ofR5Q?usp=sharing 
+
+`https://colab.research.google.com/drive/1wMZWS4ghx-1ywyY0ZOI0fFVo2T7ofR5Q?usp=sharing` 
 
 Here is a link to the dataset used in my code:
-https://drive.google.com/file/d/1BMZzHwad_tvnGtjP5FZmjOwL83CzFS0l/view?usp=sharing
+
+`https://drive.google.com/file/d/1BMZzHwad_tvnGtjP5FZmjOwL83CzFS0l/view?usp=sharing`
