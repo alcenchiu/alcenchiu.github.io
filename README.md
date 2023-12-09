@@ -110,9 +110,9 @@ The Random Forest Classifier model was also used to attempt to explore the relat
 
 In this project, three supervised machine learning models were used to try to predict the wage income of an individual based on a number of different characteristics drawn from the 2021 American Community Survey. 
 
-The complexity of predicting the wage income of an individual rendered all the models unsuccessful. What can be taken away from this work however, is that gender does appear to have correlation with wage income, through examination of the feature importance and coefficients of predictors in the three models. 
+The complexity of predicting the wage income of an individual rendered all models unsuccessful. What can be taken away from this work however, is that gender does appear to have correlation with wage income, through examination of the feature importance and coefficients of predictors in the three models. 
 
-In a future project, more research could be done on what factors could be influencing wage income, and therefore inform what variables should be chosen to include in a dataset for training a machine-learning model. 
+In a future project, more research could be done on what factors could be influencing wage income, and therefore inform what variables should be chosen to include in a dataset for training a machine-learning model. Exploration of other machine-learning models could also yield differet results, and perhaps account for more of the complexity of the dataset. 
 
 ***
 
