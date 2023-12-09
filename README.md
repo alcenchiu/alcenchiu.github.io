@@ -87,7 +87,7 @@ The feature importance ranking for this model indicated that wage income was ind
 
 [10]: assets/IMG/Figure10.png
 
-An additional metric was used to measure the Ridge and Random Forest Regression models. In Figure 11, the REC curves are shown for both models. This figure illustrates that the percentage of correct predictions is very low when tolerance is low. Even as tolerance rises up to 20, correction predictions do not reach 100%. This indicates that even with a large tolerance for error, the models are unable to correctly predict wage income.  Both models have very similar REC curves, demonstrating that despite a marginally higher R-squared for the Random Forest Regression model, both model do not predict wage income well. 
+An additional metric was used to measure the Ridge and Random Forest Regression models. In Figure 11, the REC curves are shown for both models. This figure illustrates that the percentage of correct predictions is very low when tolerance is low. Even as tolerance rises up to 20, correction predictions do not reach 100%. This indicates that even with a large tolerance for error, the models are unable to correctly predict wage income.  Both models have very similar REC curves, demonstrating that despite a marginally higher R-squared for the Random Forest Regression model, both models do not predict wage income well. 
 [![screenshot][11]][11]
 
 [11]: assets/IMG/Figure11.png
